@@ -1,0 +1,5 @@
+institute_name: catolica
+enrollment: 30
+monthly_payment: 79
+template_directory: "C:/Users/HP/Documents/projects/JBManager/templates/INPUT"
+output_directory: "C:/Users/HP/Documents/projects/JBManager/templates/OUTPUT"
