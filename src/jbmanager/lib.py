@@ -1,9 +1,10 @@
-import yaml
-from pydantic import BaseModel
-import openpyxl
+import shutil
 from pathlib import Path
 from typing import Any
-import shutil
+
+import openpyxl
+import yaml
+from pydantic import BaseModel
 
 
 class Config(BaseModel):
@@ -15,7 +16,7 @@ class Config(BaseModel):
 
 
 def load_config(filename: str) -> Any:
-    with open(filename, "r") as file:
+    with open(filename) as file:
         return yaml.safe_load(file)
 
 
