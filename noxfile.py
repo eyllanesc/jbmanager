@@ -3,9 +3,11 @@ import shutil
 import sys
 from pathlib import Path
 from textwrap import dedent
-from typing import Iterable, Iterator
+from typing import Iterable
+from typing import Iterator
 
 import nox
+
 
 package = "jbmanager"
 python_versions = ["3.11", "3.10", "3.9", "3.8"]
