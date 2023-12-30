@@ -81,14 +81,14 @@ sphinx-click = "^3.0.2"
 furo = ">=2021.11.12"
 
 [tool.poetry.scripts]
-cookiecutter-hypermodern-python-instance = "cookiecutter_hypermodern_python_instance.__main__:main"
+jbmanager = "jbmanager.__main__:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
 
 [tool.coverage.run]
 branch = true
-source = ["cookiecutter_hypermodern_python_instance"]
+source = ["jbmanager", "tests"]
 
 [tool.coverage.report]
 show_missing = true
@@ -103,5 +103,5 @@ show_error_codes = true
 show_error_context = true
 
 [build-system]
-requires = ["poetry-core>=1.1.0a6"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
