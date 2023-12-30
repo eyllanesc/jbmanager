@@ -150,7 +150,7 @@ def activate_virtualenv_in_precommit_hooks(session: nox.Session) -> None:
         hook.write_text("\n".join(lines))
 
 
-@nox.session(name="pre-commit", python="3.10")
+@nox.session(name="pre-commit", python=python_versions[0])
 def precommit(session: nox.Session) -> None:
     """Lint using pre-commit."""
     args = session.posargs or ["run", "--all-files", "--show-diff-on-failure"]
@@ -160,7 +160,7 @@ def precommit(session: nox.Session) -> None:
         activate_virtualenv_in_precommit_hooks(session)
 
 
-@nox.session(python="3.10")
+@nox.session(python=python_versions[0])
 def safety(session: nox.Session) -> None:
     """Scan dependencies for insecure packages."""
     # NOTE: Pass `extras` to `export_requirements` if the project supports any.
@@ -223,7 +223,7 @@ def xdoctest(session: nox.Session) -> None:
     session.run("python", "-m", "xdoctest", package, *args)
 
 
-@nox.session(name="docs-build", python="3.10")
+@nox.session(name="docs-build", python=python_versions[0])
 def docs_build(session: nox.Session) -> None:
     """Build the documentation."""
     args = session.posargs or ["docs", "docs/_build"]
@@ -236,7 +236,7 @@ def docs_build(session: nox.Session) -> None:
     session.run("sphinx-build", *args)
 
 
-@nox.session(python="3.10")
+@nox.session(python=python_versions[0])
 def docs(session: nox.Session) -> None:
     """Build and serve the documentation with live reloading on file changes."""
     args = session.posargs or ["--open-browser", "docs", "docs/_build"]
