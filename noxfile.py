@@ -3,11 +3,9 @@ import shutil
 import sys
 from pathlib import Path
 from textwrap import dedent
-from typing import Iterable
-from typing import Iterator
+from typing import Iterable, Iterator
 
 import nox
-
 
 package = "jbmanager"
 python_versions = ["3.11", "3.10", "3.9", "3.8"]
@@ -83,7 +81,7 @@ def export_requirements(session: nox.Session, *, extras: Iterable[str] = ()) -> 
             " (a possible cause is specifying `--no-install`)"
         )
 
-    assert isinstance(output, str)  # noqa: S101
+    assert isinstance(output, str)  # nosec assert_used noqa: S101
 
     def _stripwarnings(lines: Iterable[str]) -> Iterator[str]:
         for line in lines:
@@ -110,7 +108,7 @@ def activate_virtualenv_in_precommit_hooks(session: nox.Session) -> None:
     Args:
         session: The Session object.
     """
-    assert session.bin is not None  # noqa: S101
+    assert session.bin is not None  # nosec assert_used noqa: S101
 
     virtualenv = session.env.get("VIRTUAL_ENV")
     if virtualenv is None:
