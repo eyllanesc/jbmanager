@@ -1,4 +1,5 @@
 """Sphinx configuration."""
+
 project = "JBManager"
 author = "Edwin Yllanes"
 copyright = "2023, Edwin Yllanes"
